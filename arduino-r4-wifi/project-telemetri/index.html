@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLE Telemetry - Monitor Suhu</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Monitor Suhu</h1>
+            <p>Arduino R4 WiFi Telemetry</p>
+        </header>
+
+        <main>
+            <div class="glass-card">
+                <div class="status-indicator">
+                    <span id="connection-dot" class="dot disconnected"></span>
+                    <span id="status-text">Terputus</span>
+                </div>
+                
+                <div class="temp-display">
+                    <span id="temp-value">--</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+            </div>
+
+            <button id="connect-btn" class="glow-on-hover">Hubungkan ke Arduino</button>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
