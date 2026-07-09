@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLE Telemetry Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Dashboard Suhu Ruangan</h1>
+            <p>Real-time Telemetry via Bluetooth Low Energy (Arduino R4 WiFi)</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Info Panel -->
+            <div class="glass-card panel-info">
+                <div class="status-indicator">
+                    <span id="connection-dot" class="dot disconnected"></span>
+                    <span id="status-text">Terputus</span>
+                </div>
+                
+                <div class="temp-display">
+                    <span id="temp-value">--</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+
+                <button id="connect-btn" class="glow-on-hover">Hubungkan ke Arduino</button>
+            </div>
+
+            <!-- Chart Panel -->
+            <div class="glass-card panel-chart">
+                <h2>Grafik Suhu (Real-time)</h2>
+                <div class="chart-container">
+                    <canvas id="tempChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

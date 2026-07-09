@@ -1,0 +1,206 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --primary: #0ea5e9;
+    --primary-glow: rgba(14, 165, 233, 0.5);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --success: #10b981;
+    --danger: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #1e293b 0%, var(--bg-color) 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Info Panel Specifics */
+.panel-info {
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.panel-info:hover {
+    transform: translateY(-5px);
+}
+
+/* Chart Panel Specifics */
+.panel-chart {
+    gap: 1.5rem;
+}
+
+.panel-chart h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 1rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+    width: 100%;
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.dot.disconnected {
+    background-color: var(--danger);
+    color: var(--danger);
+}
+
+.dot.connected {
+    background-color: var(--success);
+    color: var(--success);
+}
+
+/* Digital Temperature Display */
+.temp-display {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+#temp-value {
+    font-size: 7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-main);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.update-anim {
+    animation: pop 0.3s ease-out;
+    color: var(--primary) !important;
+    text-shadow: 0 0 30px var(--primary-glow) !important;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.temp-unit {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--primary);
+    margin-top: 0.5rem;
+}
+
+/* Glowing Button */
+.glow-on-hover {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: var(--primary);
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--primary-glow);
+    margin-top: auto;
+}
+
+.glow-on-hover:hover {
+    background: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--primary-glow);
+}
+
+.glow-on-hover:active {
+    transform: translateY(1px);
+}
