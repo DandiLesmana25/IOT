@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart RFID Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Sistem Absensi RFID</h1>
+            <p>Real-time Data Logger via Web Bluetooth & LocalStorage</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Sidebar Panel -->
+            <aside class="glass-card panel-sidebar">
+                <div class="status-indicator">
+                    <span id="connection-dot" class="dot disconnected"></span>
+                    <span id="status-text">Terputus</span>
+                </div>
+                
+                <div class="card-display">
+                    <h3>Tap Terakhir:</h3>
+                    <span id="last-uid">-- -- -- --</span>
+                </div>
+
+                <button id="connect-btn" class="glow-on-hover btn-primary">Hubungkan ke Scanner</button>
+            </aside>
+
+            <!-- Table Panel -->
+            <section class="glass-card panel-table">
+                <div class="table-header">
+                    <h2>Riwayat Tap Kartu</h2>
+                    <button id="clear-btn" class="btn-outline">Hapus Data</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>UID Kartu</th>
+                                <th>Waktu Tap (Timestamp)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Baris tabel akan diisi otomatis oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
