@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Smart Dashboard (API Client)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>IoT Dashboard</h1>
+            <p>Terhubung ke Arduino via REST API Lokal</p>
+        </header>
+
+        <main>
+            <!-- Panel Koneksi (Input IP) -->
+            <div class="glass-card connection-panel">
+                <div class="input-group">
+                    <label for="ip-input">Alamat IP Arduino (Tanpa http://)</label>
+                    <div class="ip-row">
+                        <input type="text" id="ip-input" placeholder="contoh: 192.168.1.10">
+                        <button id="btn-connect" class="btn-primary">Hubungkan</button>
+                    </div>
+                </div>
+                <div class="status-indicator">
+                    <span id="connection-dot" class="dot disconnected"></span>
+                    <span id="status-text">Terputus</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Panel Kontrol LED -->
+                <div class="glass-card control-panel">
+                    <h2>Kontrol Lampu (LED)</h2>
+                    <div class="led-status-box">
+                        <span id="led-indicator" class="led-dot off"></span>
+                        <h3 id="led-text">MATI</h3>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="btn-on" class="btn-action btn-on" disabled>NYALAKAN</button>
+                        <button id="btn-off" class="btn-action btn-off" disabled>MATIKAN</button>
+                    </div>
+                </div>
+
+                <!-- Panel Baca Sensor -->
+                <div class="glass-card sensor-panel">
+                    <h2>Sensor Analog (Pin A0)</h2>
+                    <div class="sensor-value-box">
+                        <span id="sensor-value">--</span>
+                    </div>
+                    <p class="subtitle">Diperbarui otomatis secara *real-time* (AJAX Polling)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
